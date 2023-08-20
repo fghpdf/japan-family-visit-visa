@@ -4,7 +4,7 @@ import * as fs from 'fs';
 async function fillForm() {
     // const formUrl = 'https://www.cn.emb-japan.go.jp/files/100034897.pdf'
     // const formPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer())
-    const data = fs.readFileSync('./assets/100034897.pdf');
+    const data = fs.readFileSync('./public/100034897.pdf');
 
     const pdfDoc = await PDFDocument.load(data);
 
