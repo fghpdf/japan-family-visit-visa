@@ -1,10 +1,42 @@
 'use client'
 
-import {Checkbox, Input} from "@nextui-org/react";
-import React from "react";
+import {
+    Button,
+    Checkbox,
+    Divider,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
+    DropdownTrigger,
+    Input
+} from "@nextui-org/react";
+import React, {useState} from "react";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 
+const formatDate = (value: string) => {
+    return (new Date(value)).toISOString().split('T')[0];
+}
+
 export default function Example() {
+    const lang = "zh-CN";
+    const now = new Date();
+    const [applicantBirthday, setApplicantBirthday] = useState(formatDate(now.toLocaleDateString(lang)));
+
+    const applicationBirthdayChangeHandler = (value: string) => {
+        setApplicantBirthday(formatDate(value));
+    }
+
+    const countries = [
+        {
+            key: "China",
+            label: "中国",
+        },
+        {
+            key: "Japan",
+            label: "日本",
+        },
+    ];
+
     return (
         <>
             {/*
@@ -39,7 +71,6 @@ export default function Example() {
                             <Input label="名 - 拼音" isRequired placeholder="与护照一致"/>
                         </div>
 
-                        {/*TODO: format to local*/}
                         <Input type="date" label="出生年月日" isRequired placeholder="与护照一致"/>
                         <Input label="出生地点" isRequired placeholder="与护照一致，例： 湖北"/>
                         <RadioGroup isRequired label="性别"
@@ -55,6 +86,20 @@ export default function Example() {
                             <Radio value="Widowed">离婚</Radio>
                             <Radio value="Divorced">丧偶</Radio>
                         </RadioGroup>
+
+                        {/*TODO: nationality */}
+                        <Input label="身份证号" isRequired/>
+
+                        <Divider className="my-4" />
+
+                        <Input label="护照号" isRequired/>
+                        <Input label="护照签发地点" isRequired/>
+                        <Input label="护照签发机关" isRequired/>
+
+                        <Input type="date" label="护照签发日期" isRequired placeholder="与护照一致"/>
+                        <Input type="date" label="护照有效日期" isRequired placeholder="与护照一致"/>
+
+                        <Divider className="my-4" />
 
                         <div>
                             <button
