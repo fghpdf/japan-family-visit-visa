@@ -7,48 +7,14 @@ import {
 import React from "react";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import { useForm, SubmitHandler } from "react-hook-form";
-
-type FormValues = {
-    surname: string
-    lastname: string
-    surname_en: string
-    lastname_en: string
-    birthday: Date
-    birth_place: string
-    gender: string
-    chinese_id: string
-    marital_status: string
-    home_address: string
-    tel: string
-    email: string
-    last_enter_date: Date
-    last_duration: Date
-    employer_name: string
-    employer_tel: string
-    employer_address: string
-    occupation: string
-    passport_number: string
-    passport_issued_place: string
-    passport_issued_authority: string
-    passport_issued_date: Date
-    passport_expiry_date: Date
-    guarantor_name_en: string
-    guarantor_name: string
-    guarantor_tel: string
-    guarantor_address_en: string
-    guarantor_address: string
-    guarantor_birthday: string
-    guarantor_relationship: string
-    guarantor_occupation: string
-    guarantor_nationality: string
-    guarantor_visa: string
-}
+import {FormValues} from "@/app/application/type";
+import fillForm from "@/app/application/fill_form";
 
 export default function Example() {
     const { register, handleSubmit } = useForm<FormValues>()
     const [isGuarantorInviterSame, setIsGuarantorInviterSame] = React.useState("1");
 
-    const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data)
+    const onSubmit: SubmitHandler<FormValues> = (data) => console.log(fillForm(data))
 
     return (
         <>
@@ -75,8 +41,8 @@ export default function Example() {
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                         <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                            <Input label="姓" {...register("surname")} isRequired/>
-                            <Input label="名" {...register("lastname")} isRequired/>
+                            <Input label="姓" {...register("surname_zh")} isRequired/>
+                            <Input label="名" {...register("lastname_zh")} isRequired/>
                         </div>
 
                         <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
