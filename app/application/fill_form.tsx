@@ -14,8 +14,6 @@ async function fillForm(formValues: FormValues) {
 
     const fields = form.getFields();
 
-    console.log(filedMap);
-
     for (const formValuesKey in formValues) {
         if (!filedMap.has(formValuesKey)) {
             continue
