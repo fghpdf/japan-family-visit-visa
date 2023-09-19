@@ -4,8 +4,13 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import { useForm, SubmitHandler } from "react-hook-form";
+import {FormValues} from "@/app/application/type";
+import {DatePicker} from "@mui/x-date-pickers";
+import {DateInput} from "@/app/app/InputDate";
 
 export default function AddressForm() {
+    const { register, handleSubmit, setValue } = useForm<FormValues>();
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
@@ -15,56 +20,40 @@ export default function AddressForm() {
                 <Grid item xs={12} sm={6}>
                     <TextField
                         required
-                        id="firstName"
-                        name="firstName"
-                        label="First name"
+                        label="姓"
                         fullWidth
-                        autoComplete="given-name"
                         variant="standard"
+                        {...register("surname_zh")}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
                         required
-                        id="lastName"
-                        name="lastName"
-                        label="Last name"
+                        label="名"
                         fullWidth
-                        autoComplete="family-name"
                         variant="standard"
+                        {...register("lastname_zh")}
                     />
                 </Grid>
                 <Grid item xs={12}>
                     <TextField
                         required
-                        id="address1"
-                        name="address1"
-                        label="Address line 1"
+                        label="姓 - 拼音"
                         fullWidth
-                        autoComplete="shipping address-line1"
                         variant="standard"
+                        {...register("surname_en")}
                     />
                 </Grid>
                 <Grid item xs={12}>
                     <TextField
-                        id="address2"
-                        name="address2"
-                        label="Address line 2"
+                        label="名 - 拼音"
                         fullWidth
-                        autoComplete="shipping address-line2"
                         variant="standard"
+                        {...register("lastname_en")}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="city"
-                        name="city"
-                        label="City"
-                        fullWidth
-                        autoComplete="shipping address-level2"
-                        variant="standard"
-                    />
+                    <DateInput label="出生年月日" {...register("birthday")}  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
