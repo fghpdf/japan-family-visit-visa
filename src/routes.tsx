@@ -63,6 +63,12 @@ const routes: IRoute[] = [
     path: '/rtl-default',
     icon: <Icon as={MdHome} width="20px" height="20px" color="inherit" />,
   },
+  {
+    name: 'People',
+    layout: '/admin',
+    path: '/people',
+    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+  }
 ];
 
 export default routes;
