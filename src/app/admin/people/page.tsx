@@ -22,7 +22,7 @@
 */
 
 // Chakra imports
-import { Box, Grid } from '@chakra-ui/react';
+import {Box, Flex, Grid, Spacer} from '@chakra-ui/react';
 import AdminLayout from 'layouts/admin';
 
 // Custom components
@@ -40,6 +40,28 @@ import avatar from 'img/avatars/avatar4.png';
 export default function ProfileOverview() {
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
+      <Flex>
+        <Banner
+          banner={banner}
+          avatar={avatar}
+          name="Qxx"
+          job="Product Designer"
+          posts="17"
+          followers="9.7k"
+          following="274"
+        />
+        <Spacer />
+        <Banner
+
+          banner={banner}
+          avatar={avatar}
+          name="Qxx"
+          job="Product Designer"
+          posts="17"
+          followers="9.7k"
+          following="274"
+        />
+      </Flex>
       {/* Main Fields */}
       <Grid
         templateColumns={{
