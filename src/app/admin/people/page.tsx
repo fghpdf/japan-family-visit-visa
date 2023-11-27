@@ -22,7 +22,7 @@
 */
 
 // Chakra imports
-import {Box, Flex, Grid, Spacer} from '@chakra-ui/react';
+import {Box, Flex, Grid, GridItem, Spacer} from '@chakra-ui/react';
 import AdminLayout from 'layouts/admin';
 
 // Custom components
@@ -40,41 +40,23 @@ import avatar from 'img/avatars/avatar4.png';
 export default function ProfileOverview() {
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
-      <Flex>
-        <Banner
-          banner={banner}
-          avatar={avatar}
-          name="Qxx"
-          job="Product Designer"
-          posts="17"
-          followers="9.7k"
-          following="274"
-        />
-        <Spacer />
-        <Banner
-
-          banner={banner}
-          avatar={avatar}
-          name="Qxx"
-          job="Product Designer"
-          posts="17"
-          followers="9.7k"
-          following="274"
-        />
-      </Flex>
       {/* Main Fields */}
       <Grid
+        mb="20px"
         templateColumns={{
           base: '1fr',
-          lg: '1.34fr 1fr 1.62fr',
+          lg: 'repeat(2, 1fr)',
+          '2xl': '1.34fr 1.62fr 1fr',
         }}
         templateRows={{
           base: 'repeat(5, 1fr)',
-          lg: '1fr',
+          lg: 'repeat(2, 1fr)',
+          '2xl': '1fr',
         }}
         gap={{ base: '20px', xl: '20px' }}
       >
         <Banner
+          gridArea="2 / 2 / 3 / 3"
           banner={banner}
           avatar={avatar}
           name="Qxx"
@@ -84,7 +66,7 @@ export default function ProfileOverview() {
           following="274"
         />
         <Banner
-
+          gridArea="1 / 1 / 2 / 2"
           banner={banner}
           avatar={avatar}
           name="Qxx"
@@ -93,26 +75,8 @@ export default function ProfileOverview() {
           followers="9.7k"
           following="274"
         />
-        <Banner
-
-          banner={banner}
-          avatar={avatar}
-          name="Qxx"
-          job="Product Designer"
-          posts="17"
-          followers="9.7k"
-          following="274"
-        />
-        <Banner
-
-          banner={banner}
-          avatar={avatar}
-          name="Qxx"
-          job="Product Designer"
-          posts="17"
-          followers="9.7k"
-          following="274"
-        />
+        <GridItem bg='orange.300' area="1 / 1 / 2 / 2"></GridItem>
+        <GridItem bg='red.300' area={{ lg: '2 / 1 / 3 / 2' }}></GridItem>
       </Grid>
 
     </Box>

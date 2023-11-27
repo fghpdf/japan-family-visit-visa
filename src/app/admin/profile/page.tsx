@@ -22,7 +22,7 @@
 */
 
 // Chakra imports
-import { Box, Grid } from '@chakra-ui/react';
+import {Box, Grid, GridItem} from '@chakra-ui/react';
 import AdminLayout from 'layouts/admin';
 
 // Custom components
