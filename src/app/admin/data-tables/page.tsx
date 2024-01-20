@@ -10,6 +10,7 @@ import tableDataColumns from 'views/admin/dataTables/variables/tableDataColumns'
 import tableDataComplex from 'views/admin/dataTables/variables/tableDataComplex';
 import React from 'react';
 import AdminLayout from 'layouts/admin';
+import PieCard from 'views/admin/default/components/PieCard';
 
 export default function DataTables() {
   return (
@@ -19,10 +20,7 @@ export default function DataTables() {
         columns={{ sm: 1, md: 2 }}
         spacing={{ base: '20px', xl: '20px' }}
       >
-        <DevelopmentTable tableData={tableDataDevelopment} />
-        <CheckTable tableData={tableDataCheck} />
-        <ColumnsTable tableData={tableDataColumns} />
-        <ComplexTable tableData={tableDataComplex} />
+        <PieCard />
       </SimpleGrid>
     </Box>
   );

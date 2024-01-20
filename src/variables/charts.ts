@@ -309,8 +309,35 @@ export const barChartOptionsConsumption: ApexGeneric = {
 };
 
 export const pieChartOptions: ApexGeneric = {
-  labels: ["Your files", "System", "Empty"],
-  colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
+  labels: [
+    "大田区", "世田谷区", "足立区", "江東区", "品川区", "港区",
+    "練馬区", "江戸川区", "板橋区", "中央区", "新宿区", "目黒区",
+    "渋谷区", "葛飾区", "荒川区", "墨田区", "千代田区", "台東区",
+    "中野区", "豊島区", "北区", "杉並区", "文京区"
+  ],
+  colors: ["#4318FF",
+  "#6AD2FF",
+  "#EFF4FB",
+  "#FF0000",
+  "#FF8000",
+  "#FFFF00",
+  "#80FF00",
+  "#00FF00",
+  "#00FF80",
+  "#00FFFF",
+  "#0080FF",
+  "#0000FF",
+  "#8000FF",
+  "#FF00FF",
+  "#FF0080",
+  "#FF8080",
+  "#FFC080",
+  "#FFFF80",
+  "#C0FF80",
+  "#80FF80",
+  "#80FFC0",
+  "#80FFFF",
+  "#80C0FF"],
   chart: {
     width: "50px",
   },
@@ -347,7 +374,7 @@ export const pieChartOptions: ApexGeneric = {
   },
 };
 
-export const pieChartData = [63, 25, 12];
+export const pieChartData = [36, 34, 34, 22, 21, 17, 17, 15, 12, 12, 10, 9, 9, 8, 8, 7, 7, 7, 7, 5, 3, 2, 2];
 
 // Total Spent Default
 
