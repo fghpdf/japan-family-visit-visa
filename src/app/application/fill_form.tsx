@@ -1,5 +1,5 @@
 import { PDFDocument } from 'pdf-lib';
-import applicationFieldJson from '../../../../japan-family-visit-visa/public/application-field.json';
+import applicationFieldJson from '../../../public/application-field.json';
 import {FormValues} from "./type";
 
 async function fillForm(formValues: FormValues) {

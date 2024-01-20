@@ -97,7 +97,7 @@ export default function UserReports() {
         <MiniStatistics
           startContent={
             <Box height={'56px'} width={'56px'}>
-              <ChakraNextAvatar src={Usa} height={'56px'} width={'56px'} />
+              <ChakraNextAvatar height={'56px'} width={'56px'} src={''} alt={''} />
             </Box>
           }
           endContent={

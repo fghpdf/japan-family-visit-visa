@@ -46,8 +46,7 @@ export default function Banner (props: {
         w='87px'
         mt='-43px'
         border='4px solid'
-        borderColor={borderColor}
-      />
+        borderColor={borderColor} alt={''}      />
       <Text color={textColorPrimary} fontWeight='bold' fontSize='xl' mt='10px'>
         {name}
       </Text>
