@@ -12,47 +12,34 @@ import Banner from 'views/admin/profile/components/Banner';
 // Assets
 import banner from 'img/auth/banner.png';
 import avatar from 'img/avatars/avatar4.png';
+import PersonCard from 'components/card/people';
+
+import { fakerZH_CN as faker } from '@faker-js/faker';
+
+const fakePeople = Array.from({ length: 11 }, (_, i) => {
+  return {
+    name: faker.person.fullName(),
+    birthday: Intl.DateTimeFormat('zh-CN').format(faker.date.birthdate()),
+    avatar: faker.image.avatar()
+  }
+});
+
 
 export default function ProfileOverview() {
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}
       <Grid
-        mb="20px"
-        templateColumns={{
-          base: '1fr',
-          lg: 'repeat(2, 1fr)',
-          '2xl': '1.34fr 1.62fr 1fr',
-        }}
-        templateRows={{
-          base: 'repeat(5, 1fr)',
-          lg: 'repeat(2, 1fr)',
-          '2xl': '1fr',
-        }}
-        gap={{ base: '20px', xl: '20px' }}
+        templateColumns="repeat(5, 1fr)"
+        gap={6}
       >
-        <Banner
-          gridArea="2 / 2 / 3 / 3"
-          banner={banner}
-          avatar={avatar}
-          name="Qxx"
-          job="Product Designer"
-          posts="17"
-          followers="9.7k"
-          following="274"
-        />
-        <Banner
-          gridArea="1 / 1 / 2 / 2"
-          banner={banner}
-          avatar={avatar}
-          name="Qxx"
-          job="Product Designer"
-          posts="17"
-          followers="9.7k"
-          following="274"
-        />
-        <GridItem bg='orange.300' area="1 / 1 / 2 / 2"></GridItem>
-        <GridItem bg='red.300' area={{ lg: '2 / 1 / 3 / 2' }}></GridItem>
+        {
+          fakePeople.map((person, index) => {
+            return <GridItem key={index} w="100%">
+              <PersonCard person={person} />
+            </GridItem>
+          })
+        }
       </Grid>
 
     </Box>
