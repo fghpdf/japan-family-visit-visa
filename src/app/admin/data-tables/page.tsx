@@ -11,6 +11,7 @@ import tableDataComplex from 'views/admin/dataTables/variables/tableDataComplex'
 import React from 'react';
 import AdminLayout from 'layouts/admin';
 import PieCard from 'views/admin/default/components/PieCard';
+import StepForm from 'components/card/Step';
 
 export default function DataTables() {
   return (
@@ -21,6 +22,7 @@ export default function DataTables() {
         spacing={{ base: '20px', xl: '20px' }}
       >
         <PieCard />
+        <StepForm />
       </SimpleGrid>
     </Box>
   );

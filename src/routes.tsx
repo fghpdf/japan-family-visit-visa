@@ -5,6 +5,7 @@ import {
   MdHome,
   MdLock,
   MdOutlineShoppingCart,
+  MdPiano,
 } from 'react-icons/md';
 
 // Admin Imports
@@ -26,20 +27,6 @@ const routes: IRoute[] = [
     icon: <Icon as={MdHome} width="20px" height="20px" color="inherit" />,
   },
   {
-    name: 'NFT Marketplace',
-    layout: '/admin',
-    path: '/nft-marketplace',
-    icon: (
-      <Icon
-        as={MdOutlineShoppingCart}
-        width="20px"
-        height="20px"
-        color="inherit"
-      />
-    ),
-    secondary: true,
-  },
-  {
     name: 'Data Tables',
     layout: '/admin',
     icon: <Icon as={MdBarChart} width="20px" height="20px" color="inherit" />,
@@ -58,16 +45,16 @@ const routes: IRoute[] = [
     icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
   },
   {
-    name: 'RTL Admin',
-    layout: '/rtl',
-    path: '/rtl-default',
-    icon: <Icon as={MdHome} width="20px" height="20px" color="inherit" />,
-  },
-  {
     name: 'People',
     layout: '/admin',
     path: '/people',
     icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+  },
+  {
+    name: 'Application',
+    layout: '/admin',
+    path: '/application',
+    icon: <Icon as={MdPiano} width="20px" height="20px" color="inherit" />,
   }
 ];
 
