@@ -10,8 +10,14 @@ import {
   Text,
   HStack,
   Stack,
+  Card,
 } from '@chakra-ui/react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+type Inputs = {
+  familyNameCN: string;
+  givenNameCN: string;
+}
 
 const StepForm = () => {
   const [step, setStep] = useState(1);
@@ -21,6 +27,9 @@ const StepForm = () => {
     // ...可以根据步骤数增加更多的状态
   });
 
+  const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
+
   const nextStep = () => {
     setStep((prevStep) => prevStep + 1);
   };
@@ -29,13 +38,9 @@ const StepForm = () => {
     setStep((prevStep) => prevStep - 1);
   };
 
-  const handleSubmit = () => {
-    // 提交表单数据的逻辑
-  };
-
   return (
-    <Box p={4}>
-      <form>
+    <Card p={4}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Progress value={(step / 3) * 100} size="xs" colorScheme="green" />
         <VStack spacing={4}>
           {step === 1 && (
@@ -54,11 +59,11 @@ const StepForm = () => {
               <HStack>
                 <FormControl isRequired>
                   <FormLabel>姓</FormLabel>
-                  <Input isRequired/>
+                  <Input name='familyNameCN' isRequired autoComplete='family-name-cn' {...register("familyNameCN")}/>
                 </FormControl>
                 <FormControl isRequired>
                   <FormLabel>名</FormLabel>
-                  <Input isRequired/>
+                  <Input name='givenNameCN' isRequired autoComplete='given-name-cn' {...register("givenNameCN")}/>
                 </FormControl>
               </HStack>
             </>
@@ -85,14 +90,14 @@ const StepForm = () => {
                 Next
               </Button>
             ) : (
-              <Button colorScheme="teal" onClick={handleSubmit}>
+              <Button colorScheme="teal" type='submit'>
                 Submit
               </Button>
             )}
           </HStack>
         </VStack>
       </form>
-    </Box>
+    </Card>
   );
 };
 
