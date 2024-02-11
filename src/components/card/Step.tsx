@@ -11,9 +11,14 @@ import {
   HStack,
   Stack,
   Card,
+  RadioGroup,
+  Radio,
+  Select,
 } from '@chakra-ui/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IApplication } from 'types/application';
+
+import provinces from '../../../public/provinces.json';
 
 const StepForm = () => {
   const [step, setStep] = useState(1);
@@ -34,6 +39,7 @@ const StepForm = () => {
     setStep((prevStep) => prevStep - 1);
   };
 
+  // TODO: https://github.com/fghpdf/japan-family-visit-visa/blob/f0db92ed52b03ea6cf23cf1c9d6818a59155d1d0/src/app/application/page.tsx
   return (
     <Card p={4}>
       <Progress hasStripe value={(step / 3) * 100} size="md" colorScheme="green" width="100%" />
@@ -71,9 +77,40 @@ const StepForm = () => {
                     placeholder="选择与护照一致的出生年月日"
                     size="md"
                     type="date"
+                    {...register("birthday")}
                   />
                 </FormControl>
+                <FormControl isRequired>
+                  <FormLabel>出生地点</FormLabel>
+                  <Select placeholder='选择与护照一致的出生地' {...register("birthPlace")}>
+                    {
+                      provinces.map((province) => (
+                        <option value={province.name}>{province.name}</option>
+                      ))
+                    }
+                  </Select>
+                </FormControl>
               </HStack>
+              <HStack>
+                <FormControl isRequired width="100%">
+                    <FormLabel>性别</FormLabel>
+                    <RadioGroup>
+                      <Stack direction='row'>
+                        <Radio value='male'>男</Radio>
+                        <Radio value='female'>女</Radio>
+                      </Stack>
+                    </RadioGroup>
+                </FormControl>
+              </HStack>
+              <Stack>
+                <FormControl isRequired width="100%">
+                    <FormLabel>身份证号</FormLabel>
+                    <Input
+                      size="md"
+                      {...register("chineseID")}
+                    />
+                </FormControl>
+              </Stack>
             </>
           )}
           {step === 2 && (

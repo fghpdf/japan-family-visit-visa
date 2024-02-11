@@ -4,9 +4,9 @@ export interface IApplication {
   familyName?: string
   givenName?: string
   birthday?: Date
-  birth_place?: string
+  birthPlace?: string
   gender?: string
-  chinese_id?: string
+  chineseID?: string
   marital_status?: string
   home_address?: string
   tel?: string
